@@ -47,4 +47,7 @@ case $cmd in
 	exit 1
 	;;
 esac
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature/DDL_sql
