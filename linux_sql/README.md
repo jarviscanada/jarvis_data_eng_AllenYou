@@ -69,6 +69,7 @@ in set intervals.
 ![Linux_SQL](./assets/Linux_SQL.drawio.png)
 
 #Scripts
+
 	-``` psql_docker.sh```
 	This scripts creates, start, or stop the docker container that holds the PSQL database
 	```./scripts/psql_docker.sh create|start|stop [db_username][db_password] ```
