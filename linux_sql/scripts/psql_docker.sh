@@ -1,14 +1,17 @@
 #! /bin/sh
 
+#Argument set up
 cmd=$1
 db_username=$2
 db_password=$3
 
+#Docker status check -> start
 sudo systemctl status docker || systemctl start docker
 
 docker container inspect jrvs-psql
 container_status=$?
 
+#command case switch
 case $cmd in 
   create)
   
