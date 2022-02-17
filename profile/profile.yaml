@@ -19,18 +19,18 @@ skills:
     - Git
   # At least 5 skills
   competent:
-    - Donec
-    - fermentum
-    - Donec
-    - fermentum
-    - Donec
+    - Docker
+    - PHP
+    - Javascript
+    - 
+    - 
   # At least 5 skills
   familiar:
-    - Donec
-    - fermentum
-    - fermentum
-    - fermentum
-    - fermentum
+    - C/C++ 
+    - HTML/CSS
+    - Python
+    - 
+    - 
 
 # List of Jarvis projects
 jarvis_projects:
