@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b9f54aa-5f6b-4185-95ce-dc131416503e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/grep/src/main/java/ca/jrvs/apps/grep/JavaGrep.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grep/src/main/java/ca/jrvs/apps/grep/JavaGrepImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grep/src/main/java/ca/jrvs/apps/grep/JavaGrepLambdaImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grep/src/main/java/ca/jrvs/apps/practice/HelloWorld.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grep/src/main/java/ca/jrvs/apps/practice/LambdaStream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grep/src/main/java/ca/jrvs/apps/practice/LambdaStreamExc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grep/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/grep/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grep/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/grep/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +72,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Application.JavaGrepImp">
+  <component name="RunManager" selected="Application.LambdaStream">
     <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.practice.HelloWorld" />
       <module name="grep" />
@@ -104,12 +100,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LambdaStream" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.practice.LambdaStream" />
+      <module name="grep" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.jrvs.apps.practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.HelloWorld" />
       <item itemvalue="Application.JavaGrepImp" />
+      <item itemvalue="Application.LambdaStream" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LambdaStream" />
         <item itemvalue="Application.JavaGrepImp" />
         <item itemvalue="Application.HelloWorld" />
       </list>
