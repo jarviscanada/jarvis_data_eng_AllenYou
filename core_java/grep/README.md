@@ -22,7 +22,10 @@ mvn clean package
 java -jar target/grep-1.0-SNAPSHOT.jar ${regex_pattern} ${src_dir} ./out/${outfile}
 ```
 2.Docker Image
-
+```aidl
+docker pull allencyou/grep
+docker run --rm -v `pwd`/data:/data -v `pwd`/out:/out allencyou/grep ${regex_pattern} ${src_dir} /out/${outfile}
+```
 
 #Implementation
 
@@ -36,14 +39,19 @@ writeToFile(matchedLines)
 ``` 
 
 ## Performance Issue
-(30-60 words)
-Discuss the memory issue and how would you fix it
+As the application deals with progressively large files, the application outputs an OutOfMemoryError
+exception if the file is larger than the heap of the JVM. The List data structure easily gets extremely
+large if a file contains to many lines to process. The solution in the application was to use 
+Stream APIs, rather than List datatype. Streams do not store data and allows for elements to be
+computed on demand, allowing for memory to be saved in large sizes.
 
 # Test
-How did you test your application manually? (e.g. prepare sample data, run some test cases manually, compare result)
+
 
 # Deployment
-How you dockerize your app for easier distribution?
+A Docker image was created and distributed to the Docker Hub for easy access. This can be viewed on publicly 
+on https://hub.docker.com/r/allencyou/grep or using the command ``docker pull allencyou/grep.``
+
 
 # Improvement
 List three things you can improve in this project.
