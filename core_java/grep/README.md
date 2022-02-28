@@ -46,7 +46,9 @@ Stream APIs, rather than List datatype. Streams do not store data and allows for
 computed on demand, allowing for memory to be saved in large sizes.
 
 # Test
-
+The app was tested by using sample input data in the program. The sample data was inputted manually, 
+using different regex strings, root directory paths and out filenames. To see if the app worked correctly
+, the results were compared with the result of the Linux `grep` command in a log file.
 
 # Deployment
 A Docker image was created and distributed to the Docker Hub for easy access. This can be viewed on publicly 
@@ -54,4 +56,6 @@ on https://hub.docker.com/r/allencyou/grep or using the command ``docker pull al
 
 
 # Improvement
-List three things you can improve in this project.
+* Returning more specifics on the line, such as line number, positions, folder location, etc.
+* Implement friendly User Interface or a Graphical Interface for mass use.
+* Implement a feature that allows for the user to open the specific file for editing data.
