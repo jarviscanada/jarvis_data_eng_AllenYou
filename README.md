@@ -1,6 +1,6 @@
 # Allen You . Jarvis Consulting
 
-I am a recent graduate from Ryerson University with a Bachelor of Science (Honours) in Computer Science. During my education, I had the opportunity to study software engineering, database systems, data mining and the fundamentals of soft. I enjoy solving and creating software problems/tasks. Currently, I am a software developer at Jarvis Consulting Group. At Jarvis, I am developing my skill sets using agile software development practices and working hands-on with applications of new technologies (Docker, REST APIs, Springboot, etc.).
+I am a recent graduate from Ryerson University with a Bachelor of Science (Honours) in Computer Science. During my education, I had the opportunity to study software engineering, database systems, data mining and solidifying my fundamentals of coding languages. I enjoy solving and creating software problems/tasks. Currently, I am a software developer at Jarvis Consulting Group. At Jarvis, I am developing my skill sets using agile software development practices and working hands-on with applications of new technologies (Docker, REST APIs, Springboot, etc.).
 
 ## Skills
 
