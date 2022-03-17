@@ -22,8 +22,16 @@ public class TwoMapCompare {
     return m1.equals(m2);
   }
 
+  /**
+   * Big O :
+   * @param m1
+   * @param m2
+   * @param <K>
+   * @param <V>
+   * @return
+   */
   public <K,V> boolean compareTwoMapsImp(Map<K,V> m1, Map<K,V> m2){
-    if(m1.size() != m2.size)
+    if(m1.size() != m2.size())
       return false;
 
     Iterator<K> iter = m1.keySet().iterator();

@@ -18,6 +18,6 @@ public class OddEven {
    * Explanation : Singular operation
    */
   public String oddEvenBit(int i){
-    return ((i & 1) == 0) ? "true" : "false" ;
+    return ((i & 1) == 0) ? "even" : "odd" ;
   }
 }
