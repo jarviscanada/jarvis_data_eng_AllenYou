@@ -1,10 +1,14 @@
 # Allen You . Jarvis Consulting
 
+<<<<<<< HEAD
 I am a recent graduate from Ryerson University with a Bachelor of Science (Honours) in Computer Science. During my education, I had the opportunity to study software engineering, database systems, data mining and solidifying my fundamentals of coding languages. I enjoy solving and creating software problems/tasks. Currently, I am a software developer at Jarvis Consulting Group. At Jarvis, I am developing my skill sets using agile software development practices and working hands-on with applications of new technologies (Docker, REST APIs, Springboot, etc.).
+=======
+I am a recent graduate from Ryerson University with a Bachelor of Science (Honours) in Computer Science. During my education, I studied software engineering, database systems, data mining and the fundamentals of coding languages. I enjoy solving coding problems and creating software. During school the languages I got to work with are Java, C+/C , PHP, SQL and Bash. I was able to work with these languages by completing school projects. Currently, I am a software developer at Jarvis Consulting Group. At Jarvis, I am developing my skill sets using agile software development practices and working hands-on with applications of new technologies (Docker, REST APIs, Springboot, etc.).
+>>>>>>> feature/profile
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
+**Proficient:** Java, RDBMS/SQL, Bash, Agile/Scrum, Git
 
 **Competent:** Docker, PHP, Javascript, Data Structures, Maven
 
@@ -24,7 +28,11 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AllenYou](
 
 
 ## Highlighted Projects
+<<<<<<< HEAD
 **Web app for car rental service**: Worked in a group as a full stack developer using HTML, Angular, PHP, MySQL. The app focus was to be a user friendly app where one can sign up and purchase rentals for specific time and dates. Team coordination efforts include Github and daily meetings involving design review and implementation assigments.
+=======
+**Web App For Car Rental Service**: Worked in a group as a full stack developer using HTML, Angular, PHP, MySQL. The app focus was to be a user friendly app where one can sign up and purchase rentals for specific time and dates. Team coordination efforts include Github and daily meetings involving design review and implementation assigments.
+>>>>>>> feature/profile
 
 **CACM Document Retrieval Application**: Created a Java program that finds the most relevant document in a collection of over 3000 documents ([the CACM collection](http://ir.dcs.gla.ac.uk/resources/test_collections/cacm/)). Preprocessed queries to filter stop words, stem words and non-alphanumeric values and stored document frequency, term frequency, position and document ID for every term. This information was then used to score the document relevancy for any user query to find the most relevant documents.
 
@@ -40,5 +48,13 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AllenYou](
 
 ## Miscellaneous
 - Foodie
+<<<<<<< HEAD
 - Casual Gamer
 - Fitness Enthusiast
+=======
+- I enjoy trying different types of food! As Toronto is ethnically diverse so is the food scene and I to eat at as many places as possible.
+- Casual Gamer
+- I spend my free time playing games to relax and enjoy the rest of the day or I play with friends and socialize with them.
+- Fitness Enthusiast
+- I believe that fitness is a core part of being mentally healthy. I try to work out after work to stay mentally and physically fit.
+>>>>>>> feature/profile
