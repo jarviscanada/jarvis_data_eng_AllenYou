@@ -1,2 +1,5 @@
-package ca.jrvs.apps.twitter.service;public class TwitterServiceUnitTest {
+package ca.jrvs.apps.twitter.service;
+
+public class TwitterServiceUnitTest {
+
 }
