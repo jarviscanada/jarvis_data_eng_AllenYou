@@ -1,6 +1,5 @@
 package ca.jrvs.apps.twitter.model;
 
-
 import com.fasterxml.jackson.annotation.*;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -9,8 +8,8 @@ import com.fasterxml.jackson.annotation.*;
     "coordinates",
     "type"
 })
-
 public class Coordinates {
+
   @JsonProperty("coordinates")
   public float[] coordinates;
   @JsonProperty("type")
@@ -20,14 +19,17 @@ public class Coordinates {
   public float[] getCoordinates() {
     return coordinates;
   }
+
   @JsonSetter
   public void setCoordinates(float[] coordinates) {
     this.coordinates = coordinates;
   }
+
   @JsonGetter
   public String getType() {
     return type;
   }
+
   @JsonSetter
   public void setType(String type) {
     this.type = type;

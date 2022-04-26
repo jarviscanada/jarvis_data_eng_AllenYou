@@ -11,11 +11,11 @@ import static org.junit.Assert.*;
 
 public class TwitterDaoIntTest {
 
-  public String hashTag = "#testing";
+  public String hashTag = "#test";
   float longitude = 10f;
   float latitude = -10f;
   TwitterDao twitterDao;
-  String text = "Sample text for testing."+ hashTag + " " + System.currentTimeMillis();
+  String text = "@This is a test for testing purposes"+ hashTag + " " + System.currentTimeMillis();
   @Before
   public void setUp() throws Exception {
     String consumerKey = System.getenv("consumerKey");
@@ -45,8 +45,8 @@ public class TwitterDaoIntTest {
 
   @Test
   public void findById() {
-    String id = "1465754182586097666";
-    String expectedText = "Sample text for testing. #testing";
+    String id = "111112";
+    String expectedText = "@This is a test for testing purposes";
     Tweet tweet = twitterDao.findById(id);
 
     assertEquals(expectedText, tweet.getText());

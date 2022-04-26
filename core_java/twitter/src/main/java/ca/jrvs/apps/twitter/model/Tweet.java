@@ -1,12 +1,12 @@
 package ca.jrvs.apps.twitter.model;
 
-
 import com.fasterxml.jackson.annotation.*;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({
     "created_at",
+    "id",
     "id_str",
     "text",
     "entities",
@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.*;
     "favorited",
     "retweeted"
 })
-
 public class Tweet {
+
   @JsonProperty("created_at")
-  public String created_at;
+  public String createdAt;
   @JsonProperty("id")
   public long id;
   @JsonProperty("id_str")
@@ -31,95 +31,112 @@ public class Tweet {
   @JsonProperty("coordinates")
   public Coordinates coordinates;
   @JsonProperty("retweet_count")
-  public int retweet_count;
+  public int retweetCount;
   @JsonProperty("favorite_count")
-  public int favorite_count;
+  public int favoriteCount;
   @JsonProperty("favorited")
   public boolean favorited;
   @JsonProperty("retweeted")
   public boolean retweeted;
 
   @JsonGetter
-  public String getCreated_at() {
-    return created_at;
+  public String getCreatedAt() {
+    return createdAt;
   }
+
   @JsonSetter
-  public void setCreated_at(String created_at) {
-    this.created_at = created_at;
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
   }
+
   @JsonGetter
   public long getId() {
     return id;
   }
+
   @JsonSetter
   public void setId(long id) {
     this.id = id;
   }
+
   @JsonGetter
   public String getId_str() {
     return id_str;
   }
+
   @JsonSetter
   public void setId_str(String id_str) {
     this.id_str = id_str;
   }
+
   @JsonGetter
   public String getText() {
     return text;
   }
+
   @JsonSetter
   public void setText(String text) {
     this.text = text;
   }
+
   @JsonGetter
   public Entities getEntities() {
     return entities;
   }
+
   @JsonSetter
-  public void setEntities(Entities entites) {
-    this.entities = entites;
+  public void setEntities(Entities entities) {
+    this.entities = entities;
   }
+
   @JsonGetter
-  public Coordinates getCoordinates() {
+  public Coordinates getCoordinates(){
     return coordinates;
   }
+
   @JsonSetter
   public void setCoordinates(Coordinates coordinates) {
     this.coordinates = coordinates;
   }
+
   @JsonGetter
-  public int getRetweet_count() {
-    return retweet_count;
+  public int getRetweetCount() {
+    return retweetCount;
   }
+
   @JsonSetter
-  public void setRetweet_count(int retweet_count) {
-    this.retweet_count = retweet_count;
+  public void setRetweetCount(int retweetCount) {
+    this.retweetCount = retweetCount;
   }
+
   @JsonGetter
-  public int getFavorite_count() {
-    return favorite_count;
+  public int getFavoriteCount() {
+    return favoriteCount;
   }
+
   @JsonSetter
-  public void setFavorite_count(int favorite_count) {
-    this.favorite_count = favorite_count;
+  public void setFavoriteCount(int favoriteCount) {
+    this.favoriteCount = favoriteCount;
   }
+
   @JsonGetter
-  public boolean getFavorited() {
+  public boolean isFavorited() {
     return favorited;
   }
+
   @JsonSetter
   public void setFavorited(boolean favorited) {
     this.favorited = favorited;
   }
+
   @JsonGetter
-  public boolean getRetweeted() {
+  public boolean isRetweeted() {
     return retweeted;
   }
+
   @JsonSetter
   public void setRetweeted(boolean retweeted) {
     this.retweeted = retweeted;
   }
 
 }
-
-

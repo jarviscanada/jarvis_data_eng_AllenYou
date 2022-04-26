@@ -56,14 +56,13 @@ public class TwitterDao implements CrdDao<Tweet, String>{
   public Tweet findById(String s) {
     URI uri;
     try{
-      uri = getShowUri(s);
-    }
-    catch(URISyntaxException e){
-      throw new IllegalArgumentException("Invalid tweet input", e);
+      uri =  getShowUri(s);
+    }catch(URISyntaxException e)
+    {
+      throw new IllegalArgumentException("Invalid tweet input",e);
     }
     HttpResponse response = httpHelper.httpGet(uri);
-
-    return parseResponseBody(response, HTTP_OK);
+    return parseResponseBody(response,HTTP_OK);
   }
 
   @Override
@@ -80,37 +79,34 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     return parseResponseBody(response, HTTP_OK);
   }
 
-  public Tweet parseResponseBody(HttpResponse response, Integer expectedStatusCode){
+  Tweet parseResponseBody(HttpResponse response, Integer expectedStatusCode) {
     Tweet tweet = null;
-
-    //Check response status
     int status = response.getStatusLine().getStatusCode();
-    if (status != expectedStatusCode){
+    if(status != expectedStatusCode){
       try{
-        logger.debug(EntityUtils.toString(response.getEntity()));
+        System.out.println(EntityUtils.toString(response.getEntity()));
+      }catch(IOException e){
+        System.out.println("Response has no entity");
+
       }
-      catch(IOException e){
-        logger.error("Response has no entity");
-      }
-      throw new RuntimeException("Unexpected HTTP status: "+status);
+      throw new RuntimeException("Unexpected HTTP status: "+ status);
+
     }
 
-    if(response.getEntity()==null){
+    if(response.getEntity()==null)
+    {
       throw new RuntimeException("Empty response body");
-    }
 
+    }
     String jsonStr;
     try{
       jsonStr = EntityUtils.toString(response.getEntity());
+    } catch (IOException e) {
+      throw new RuntimeException("Failed to convert entity to String",e);
     }
-    catch(IOException e){
-      throw new RuntimeException("Failed to convert entity to String", e);
-    }
-
     try{
       tweet = JsonUtil.toObjectFromJson(jsonStr, Tweet.class);
-    }
-    catch(IOException e){
+    }catch(IOException e){
       throw new RuntimeException("Unable to convert JSON str to Object", e);
     }
 
