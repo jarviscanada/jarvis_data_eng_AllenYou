@@ -28,7 +28,7 @@ public class TwitterServiceUnitTest {
   TwitterService service;
 
   String text = "test with loc223";
-  String text2 = "@tos test5 ";
+  String text2 = "allen__you test " + System.currentTimeMillis();
   float longitude = 10.1f;
   float latitude = -10.1f;
 
@@ -59,9 +59,9 @@ public class TwitterServiceUnitTest {
     String invalidText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla facilisis ipsum." +
         " Nunc lacinia lobortis lectus, vel luctus nulla tristique non. Nullam tempor hendrerit eros, eu imperdiet " +
         "nulla convallis eget. Etiam vitae sapien eu sem vestibulum varius. Integer cursus cras amet." +
-        "consequat massa quis en"; //290 characters (10 over limit)
+        "consequat massa quis"; //290 characters (10 over limit)
     float badLat = 200.1f;
-    float badLong = -100.1f;
+    float badLong = -200.1f;
 
     Tweet badTxtTweet =  TweetUtil.buildTweet(invalidText, longitude, latitude);
     Tweet badLongTweet =  TweetUtil.buildTweet(text, badLong, latitude);
@@ -106,7 +106,7 @@ public class TwitterServiceUnitTest {
   }
 
   @Test
-  public void testBShowTweet() throws IOException {
+  public void testShowTweet() throws IOException {
     String id = "1445814382668091394";
     String invalidId = "ABC1234ABCDEFG%&*#JKLMN";
     String[] fields = {
@@ -157,7 +157,7 @@ public class TwitterServiceUnitTest {
   }
 
   @Test
-  public void testCDeleteById() throws IOException {
+  public void testDeleteById() throws IOException {
     String[] ids = {"1445454948389429253", "1445455964530823179"};
     String[] invalidIds = {"ABC1234ABCDEFG%&*#JKLMN", "1445814382668091394"};
 

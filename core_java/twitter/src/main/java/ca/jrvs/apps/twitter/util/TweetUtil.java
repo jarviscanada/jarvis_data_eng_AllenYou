@@ -8,10 +8,11 @@ import java.util.List;
 
 public class TweetUtil {
 
-  public static Tweet buildTweet(String text, double longitude, double latitude){
+  public static Tweet buildTweet(String text, float longitude, float latitude){
     Tweet tweet = new Tweet();
     Coordinates coordinates = new Coordinates();
-    float[] coordArr = {(float)longitude, (float)latitude};
+    float[] coordArr = {longitude, latitude};
+
     coordinates.setCoordinates(coordArr);
     coordinates.setType("Point");
 

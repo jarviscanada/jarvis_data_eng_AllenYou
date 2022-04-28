@@ -17,8 +17,8 @@ public class TwitterServiceIntTest {
   public TwitterService service;
   String hashtag ="#test";
   String text = "Test text " + hashtag;
-  float longitude = 10.1f;
-  float latitude  = -10.1f;
+  float longitude = 10.01f;
+  float latitude  = -10.01f;
 
   @Before
   public void setUp() throws Exception {
@@ -39,7 +39,7 @@ public class TwitterServiceIntTest {
         " Nunc lacinia lobortis lectus, vel luctus nulla tristique non. Nullam tempor hendrerit eros, eu imperdiet " +
         "nulla convallis eget. Etiam vitae sapien eu sem vestibulum varius. Integer cursus cras amet.";
     float badLat = 200.1f;
-    float badLong = -100.1f;
+    float badLong = -200.1f;
 
     Tweet badTxtTweet =  TweetUtil.buildTweet(invalidText, longitude, latitude);
     Tweet badLongTweet =  TweetUtil.buildTweet(text, badLong, latitude);
@@ -81,7 +81,7 @@ public class TwitterServiceIntTest {
   }
   @Test
   public void testShowTweet() throws JsonProcessingException {
-    String id = "111111111111111111";
+    String id = "1519214290930130945";
     String invalidId = "ABC1234ABCDEFG%&*#JKLMN";
     String[] fields = {
         "created_at",
@@ -96,10 +96,10 @@ public class TwitterServiceIntTest {
         "retweeted"
     };
     String[] invalidFields = {
-        "created_@",
-        "idd",
-        "id_strr",
-        "favorite_countt"
+        "created_",
+        "id1",
+        "id_string",
+        "favorite"
     };
 
     //invalid id testing
@@ -118,13 +118,13 @@ public class TwitterServiceIntTest {
       fail();
     }
     catch(IllegalArgumentException e){
-      final String expected = "Invalid or Missing Fields(s): created_@ idd id_strr favorite_countt ";
+      final String expected = "Invalid or Missing Fields(s): created_ id1 id_string favorite ";
       assertEquals(expected, e.getMessage());
     }
 
     Tweet tweet = service.showTweet(id, fields);
 
-    String expectedText = "@tos SHOW TWEET SAMPLE. DO NOT DELETE. #sample 1633726235820";
+    String expectedText = "@This is a test for testing purposes #test 1651043885219";
 
     assertEquals(expectedText, tweet.getText());
     int epsilon =(int) Math.abs(longitude - tweet.getCoordinates().getCoordinates()[0]);

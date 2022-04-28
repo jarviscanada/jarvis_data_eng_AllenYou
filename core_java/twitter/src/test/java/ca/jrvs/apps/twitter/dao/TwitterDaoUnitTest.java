@@ -34,7 +34,7 @@ public class TwitterDaoUnitTest {
       + "      \"user_mentions\":[]"
       + "   },\n"
       + "   \"coordinates\": {"
-      + "           \"coordinates\" : [ 10.1, 10.1 ],\n"
+      + "           \"coordinates\" : [ 10.01, -10.01 ],\n"
       + "           \"type\" : \"Point\"\n"
       + "   },\n"
       + "   \"retweet_count\":0,\n"
@@ -47,7 +47,7 @@ public class TwitterDaoUnitTest {
   public void postTweet() throws Exception {
     //test failed request
     String hashtag = "#sample";
-    String text = "@tos test "+ hashtag + " " + System.currentTimeMillis();
+    String text = "@test tweet "+ hashtag + " " + System.currentTimeMillis();
     float longitude = 10.1f;
     float latitude = -10.1f;
 
@@ -67,6 +67,7 @@ public class TwitterDaoUnitTest {
     Tweet tweet = spyDao.create(TweetUtil.buildTweet(text, longitude, latitude));
     assertNotNull(tweet);
     assertNotNull(tweet.getText());
+    assertNotNull(tweet.getCoordinates());
   }
 
   @Test

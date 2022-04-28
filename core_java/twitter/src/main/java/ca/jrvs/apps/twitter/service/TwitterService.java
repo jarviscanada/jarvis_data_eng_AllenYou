@@ -12,10 +12,10 @@ public class TwitterService implements Service{
   private CrdDao dao;
 
   private static final int TWEET_LIMIT = 280;
-  private static final float LONG_MIN = -180;
   private static final float LONG_MAX =  180;
-  private static final float LAT_MIN = -90;
+  private static final float LONG_MIN = -180;
   private static final float LAT_MAX = 90;
+  private static final float LAT_MIN = -90;
 
 
   //@Autowired
@@ -58,14 +58,16 @@ public class TwitterService implements Service{
 
   private void validatePostTweet(Tweet tweet) {
     //text validation
-    if(tweet.getText().length() >= TWEET_LIMIT)
+    if(tweet.getText().length() > TWEET_LIMIT) {
       throw new IllegalArgumentException("Tweet must be 280 characters or less.");
-
+    }
     //coordinates validation
     float[] coordinates = tweet.getCoordinates().getCoordinates();
-    if(coordinates[0] >= LONG_MAX || coordinates[0] <= LONG_MIN ||
-    coordinates[1] >= LAT_MAX || coordinates[1] <= LAT_MIN)
-      throw new IllegalArgumentException("Coordinates are out of bounds");
+
+    if(coordinates[0] > LONG_MAX || coordinates[0] < LONG_MIN ||
+        coordinates[1] > LAT_MAX || coordinates[1] < LAT_MIN) {
+      throw new IllegalArgumentException("Coordinates are out of range.");
+    }
   }
 
   private void validateShowTweet(String id, String[] fields) {
@@ -104,4 +106,5 @@ public class TwitterService implements Service{
       }
     }
   }
+
 }

@@ -3,7 +3,9 @@ package ca.jrvs.apps.twitter.dao;
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
 import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
 import ca.jrvs.apps.twitter.model.Tweet;
+import ca.jrvs.apps.twitter.util.JsonUtil;
 import ca.jrvs.apps.twitter.util.TweetUtil;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,10 +14,11 @@ import static org.junit.Assert.*;
 public class TwitterDaoIntTest {
 
   public String hashTag = "#test";
-  float longitude = 10f;
-  float latitude = -10f;
+  float longitude = 10.01f;
+  float latitude = -10.01f;
   TwitterDao twitterDao;
-  String text = "@This is a test for testing purposes"+ hashTag + " " + System.currentTimeMillis();
+  String text = "@This is a test for testing purposes "+ hashTag + " " + System.currentTimeMillis();
+
   @Before
   public void setUp() throws Exception {
     String consumerKey = System.getenv("consumerKey");
@@ -28,10 +31,11 @@ public class TwitterDaoIntTest {
   }
 
   @Test
-  public void create() {
+  public void create()throws Exception{
 
     Tweet postTweet = TweetUtil.buildTweet(text, longitude, latitude);
     Tweet tweet = twitterDao.create(postTweet);
+    System.out.println(JsonUtil.toJson(tweet,true, true));
 
     assertEquals(text, tweet.getText());
     assertNotNull(tweet.getCoordinates());
@@ -39,14 +43,12 @@ public class TwitterDaoIntTest {
     assertEquals(longitude, tweet.getCoordinates().getCoordinates()[0], 1e-8);
     assertEquals(latitude, tweet.getCoordinates().getCoordinates()[1], 1e-8);
     assertTrue(hashTag.contains(tweet.getEntities().getHashtags().get(0).getText()));
-
-
   }
 
   @Test
   public void findById() {
-    String id = "111112";
-    String expectedText = "@This is a test for testing purposes";
+    String id = "1519214290930130945";
+    String expectedText = "@This is a test for testing purposes #test 1651043885219";
     Tweet tweet = twitterDao.findById(id);
 
     assertEquals(expectedText, tweet.getText());

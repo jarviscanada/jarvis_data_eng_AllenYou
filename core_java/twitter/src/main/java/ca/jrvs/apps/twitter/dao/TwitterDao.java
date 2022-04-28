@@ -47,22 +47,23 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     catch(URISyntaxException e){
       throw new IllegalArgumentException("Invalid tweet input", e);
     }
-    HttpResponse response = httpHelper.httpPost(uri);
+    HttpResponse response=httpHelper.httpPost(uri);
 
-    return parseResponseBody(response, HTTP_OK);
+    return parseResponseBody(response,HTTP_OK);
   }
 
   @Override
   public Tweet findById(String s) {
     URI uri;
     try{
-      uri =  getShowUri(s);
-    }catch(URISyntaxException e)
-    {
-      throw new IllegalArgumentException("Invalid tweet input",e);
+      uri = getShowUri(s);
+    }
+    catch(URISyntaxException e){
+      throw new IllegalArgumentException("Invalid tweet input", e);
     }
     HttpResponse response = httpHelper.httpGet(uri);
-    return parseResponseBody(response,HTTP_OK);
+
+    return parseResponseBody(response, HTTP_OK);
   }
 
   @Override
@@ -79,34 +80,37 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     return parseResponseBody(response, HTTP_OK);
   }
 
-  Tweet parseResponseBody(HttpResponse response, Integer expectedStatusCode) {
+  Tweet parseResponseBody(HttpResponse response, Integer expectedStatusCode){
     Tweet tweet = null;
+
+    //Check response status
     int status = response.getStatusLine().getStatusCode();
-    if(status != expectedStatusCode){
+    if (status != expectedStatusCode){
       try{
-        System.out.println(EntityUtils.toString(response.getEntity()));
-      }catch(IOException e){
-        System.out.println("Response has no entity");
-
+        logger.debug(EntityUtils.toString(response.getEntity()));
       }
-      throw new RuntimeException("Unexpected HTTP status: "+ status);
-
+      catch(IOException e){
+        logger.error("Response has no entity");
+      }
+      throw new RuntimeException("Unexpected HTTP status: "+status);
     }
 
-    if(response.getEntity()==null)
-    {
+    if(response.getEntity()==null){
       throw new RuntimeException("Empty response body");
-
     }
+
     String jsonStr;
     try{
       jsonStr = EntityUtils.toString(response.getEntity());
-    } catch (IOException e) {
-      throw new RuntimeException("Failed to convert entity to String",e);
     }
+    catch(IOException e){
+      throw new RuntimeException("Failed to convert entity to String", e);
+    }
+
     try{
       tweet = JsonUtil.toObjectFromJson(jsonStr, Tweet.class);
-    }catch(IOException e){
+    }
+    catch(IOException e){
       throw new RuntimeException("Unable to convert JSON str to Object", e);
     }
 
@@ -126,12 +130,12 @@ public class TwitterDao implements CrdDao<Tweet, String>{
   }
 
   public URI getShowUri(String s) throws URISyntaxException {
-    //https://api.twitter.com/1.1/statuses/show.json?id=12345678
+    //https://api.twitter.com/1.1/statuses/show.json?id=1234567890
     return new URI(API_BASE_URI+SHOW_PATH+QUERY_SYM+"id"+EQUAL+s);
   }
 
   public URI getDeleteUri(String s) throws URISyntaxException {
-    //https://api.twitter.com/1.1/statuses/destroy?id=12345678
+    //https://api.twitter.com/1.1/statuses/destroy?id=1234567890
     return new URI(API_BASE_URI+DELETE_PATH+"/"+s+".json");
   }
 }
